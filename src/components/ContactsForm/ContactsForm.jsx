@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'pages/redux/contacts/operations';
 import { selectContacts } from 'pages/redux/contacts/selectors';
 
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { Button, Form, Input, Label } from './ContactsForm.styled';
+
+
 
 const nameInputId = nanoid();
 const numberInputId = nanoid();
@@ -50,10 +54,10 @@ export const ContactForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={nameInputId}>
+      <Form onSubmit={handleSubmit}>
+        <Label htmlFor={nameInputId}>
           Name
-          <input
+          <Input
             type="text"
             name="name"
             placeholder="Введіть ім'я"
@@ -63,11 +67,11 @@ export const ContactForm = () => {
             title="Ім'я має містити лише літери, апострофи, дефіси та відступи"
             required
           />
-        </label>
+        </Label>
 
-        <label htmlFor={numberInputId}>
+        <Label htmlFor={numberInputId}>
           Number
-          <input
+          <Input
             type="tel"
             name="number"
             placeholder="Введіть номер телефону"
@@ -79,12 +83,13 @@ export const ContactForm = () => {
             title="Номер телефону має починатися з +, а потім 12 цифр"
             required
           />
-        </label>
+        </Label>
 
-        <button type="submit">
-          Add contact{' '}
-        </button>
-      </form>
+        <Button type="submit">
+          Add contact  
+          <PersonAddIcon/>
+        </Button>
+      </Form>
       <Filter />
     </>
   );

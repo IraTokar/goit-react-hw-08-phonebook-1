@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts } from 'pages/redux/contacts/operations';
 import { selectVisibleContacts } from 'pages/redux/contacts/selectors';
 
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Button, Item } from './ContactsList.styled';
+
 
 
 export const ContactList = () => {
@@ -13,19 +16,19 @@ export const ContactList = () => {
   return (
     <ul>
       {contacts.map(contact => (
-        <li key={contact.id}>
+        <Item key={contact.id}>
           {contact.name + ' : ' + contact.number}
           {
-            <button
+            <Button
               type="button"
               name="delete"
               onClick={() => dispatch(deleteContacts(contact.id))}
             >
-              
+              <DeleteIcon/>
               delete
-            </button>
+            </Button>
           }
-        </li>
+        </Item>
       ))}
     </ul>
   );
