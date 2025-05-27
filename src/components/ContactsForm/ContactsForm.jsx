@@ -60,11 +60,11 @@ export const ContactForm = () => {
           <Input
             type="text"
             name="name"
-            placeholder="Введіть ім'я"
+            placeholder="Enter a name"
             value={name}
             onChange={handleChange}
-            pattern="^[^\d]+$"
-            title="Ім'я має містити лише літери, апострофи, дефіси та відступи"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces."
             required
           />
         </Label>
@@ -77,10 +77,8 @@ export const ContactForm = () => {
             placeholder="Введіть номер телефону"
             value={number}
             onChange={handleChange}
-            pattern="\+\d{12}"
-            minlength="13"
-            maxlength="13"
-            title="Номер телефону має починатися з +, а потім 12 цифр"
+            pattern="^\+?[0-9\s\-\(\)]{7,20}$"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
         </Label>
