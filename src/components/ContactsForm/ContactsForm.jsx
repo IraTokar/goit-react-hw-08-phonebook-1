@@ -74,7 +74,7 @@ export const ContactForm = () => {
           <Input
             type="tel"
             name="number"
-            placeholder="Введіть номер телефону"
+            placeholder="Enter a phone number"
             value={number}
             onChange={handleChange}
             pattern="^\+?[0-9\s\-\(\)]{7,20}$"
